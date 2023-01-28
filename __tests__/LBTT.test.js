@@ -8,4 +8,14 @@ describe("LBTT", () => {
     const result = LBTT(value);
     expect(result).toBe(0);
   });
+  it("returns zero if passed a value of < 145000", () => {
+    const value = 20000;
+    const result = LBTT(value);
+    expect(result).toBe(0);
+  });
+  it("returns zero if passed a value = 145000", () => {
+    const value = 145000;
+    const result = LBTT(value);
+    expect(result).toBe(0);
+  });
 });
