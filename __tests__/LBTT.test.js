@@ -28,14 +28,24 @@ describe("LBTT", () => {
     const result = LBTT(value);
     expect(result).toBe(2100);
   });
-  it("returns correct result if passed a value of the second tax paying band", () => {
+  it("returns correct result if passed a value in the second tax paying band", () => {
     const value = 300000;
     const result = LBTT(value);
     expect(result).toBe(4600);
   });
-  it("returns correct result if passed a value of the second tax paying band", () => {
+  it("returns correct result if passed the maximum value of the second tax paying band", () => {
     const value = 325000;
     const result = LBTT(value);
     expect(result).toBe(5850);
+  });
+  it("returns correct result if passed a value in the third tax paying band", () => {
+    const value = 500000;
+    const result = LBTT(value);
+    expect(result).toBe(23350);
+  });
+  it("returns correct result if passed the maximum value of the third tax paying band", () => {
+    const value = 750000;
+    const result = LBTT(value);
+    expect(result).toBe(48350);
   });
 });
