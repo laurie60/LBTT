@@ -1,9 +1,11 @@
 const LBTT = (value) => {
-  let tax = 0;
-  if (value <= 145000) {
-    return tax;
+  let taxable = value - 145000;
+  if (taxable <= 0) {
+    return 0;
   }
-  return tax;
+  if (taxable - 105000 <= 0) {
+    return taxable * 0.02;
+  }
 };
 
 module.exports = LBTT;
