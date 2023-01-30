@@ -1,21 +1,29 @@
 const LBTT = (value) => {
-  let taxable = value - 145000;
   let total = 0;
+
+  const taxable = value - 145000;
+
   if (taxable <= 0) {
-    return 0;
+    return total;
   }
-  const secondBand = taxable - 105000;
-  if (secondBand <= 0) {
+
+  const aboveFirstBand = taxable - 105000;
+
+  if (aboveFirstBand <= 0) {
     return taxable * 0.02;
   } else total += 105000 * 0.02;
-  const thirdBand = secondBand - 75000;
-  if (thirdBand <= 0) {
-    return (total += secondBand * 0.05);
+
+  const aboveSecondBand = aboveFirstBand - 75000;
+
+  if (aboveSecondBand <= 0) {
+    return (total += aboveFirstBand * 0.05);
   } else total += 75000 * 0.05;
-  const fourthBand = thirdBand - 425000;
+
+  const fourthBand = aboveSecondBand - 425000;
+
   if (fourthBand <= 0) {
-    return (total += thirdBand * 0.1);
-  }
+    return (total += aboveSecondBand * 0.1);
+  } else return (total += 425000 * 0.1 + fourthBand * 0.12);
 };
 
 module.exports = LBTT;
